@@ -1,3 +1,7 @@
+# FINANCE project
+
+fetching data and display financial content
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
