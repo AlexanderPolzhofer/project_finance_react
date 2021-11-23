@@ -11,3 +11,7 @@
 .multilineColor{
     color:'white';
 }
+
+.homeIcon:hover{
+cursor: pointer;
+}

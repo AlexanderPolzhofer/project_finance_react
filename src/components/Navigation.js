@@ -18,8 +18,12 @@ class Navigation extends React.Component {
     render() {
         return (
             <div className={style.container}>
-                <HomeIcon onClick={() => this.handleClick()} />
-                <TextField className={style.multilineColor} id="standard-basic" label="WKN/ISIN/NAME" variant="standard" />
+                <HomeIcon onClick={() => this.handleClick()} className={style.homeIcon}/>
+                <TextField InputProps={{
+                    style: {
+                        color: "white"
+                    }
+                }} id="standard-basic" label="WKN/ISIN/NAME" variant="standard" />
             </div>
 
         );
