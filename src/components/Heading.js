@@ -8,7 +8,7 @@ class Heading extends React.Component {
     }
     render() {
         return (<div className={style.heading}>
-            <p>Aktienanalyse Indizes</p>
+            <p>Indizes</p>
         </div>);
     }
 }

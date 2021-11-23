@@ -15,9 +15,9 @@ function App() {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <CardComponent title="DAX" />
-        <CardComponent title="S&P 500" />
-        <CardComponent title="Nikkei 225" />
+        <CardComponent title="DAX" imageUrl="images/flagGermany.png"/>
+        <CardComponent title="S&P 500" imageUrl="images/flagUSA.png"/>
+        <CardComponent title="Nikkei 225" imageUrl="images/flagJapan.png"/>
       </div>
 
 
