@@ -1,6 +1,9 @@
 .heading{
     margin: 21px;
     border: solid;
+    border-color: gray;
+    border-radius: 12px;
     width: 555px;
     font-size: larger;
+    box-shadow: 2px 2px 4px 1px rgb(104, 104, 104);
 }

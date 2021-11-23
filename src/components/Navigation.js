@@ -16,15 +16,13 @@ class Navigation extends React.Component {
     }
 
     render() {
-        return (<div style={{backgroundColor:"rgb(94, 94, 94)", color: "white", padding: "8px"}}>
+        return (
             <div className={style.container}>
                 <HomeIcon onClick={() => this.handleClick()} />
                 <TextField className={style.multilineColor} id="standard-basic" label="WKN/ISIN/NAME" variant="standard" />
             </div>
 
-            <div style={{ alignItems: "center" , fontSize: "larger", fontsWidth: "bold"}}>Aktienanalyse</div>
-
-        </div>);
+        );
     }
 }
 

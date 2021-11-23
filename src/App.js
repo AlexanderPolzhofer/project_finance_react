@@ -15,9 +15,9 @@ function App() {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <CardComponent title="DAX" imageUrl="images/flagGermany.png"/>
-        <CardComponent title="S&P 500" imageUrl="images/flagUSA.png"/>
-        <CardComponent title="Nikkei 225" imageUrl="images/flagJapan.png"/>
+        <CardComponent title="DAX" imageUrl="images/flagGermany.png" />
+        <CardComponent title="S&P 500" imageUrl="images/flagUSA.png" onClick={() => alert("clickedComponent")} />
+        <CardComponent title="Nikkei 225" imageUrl="images/flagJapan.png" />
       </div>
 
 

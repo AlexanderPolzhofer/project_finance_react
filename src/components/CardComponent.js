@@ -7,7 +7,6 @@ class Cardcomponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            images: "images/flagGermany.png"
         }
     }
     render() {
