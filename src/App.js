@@ -28,18 +28,23 @@ function App() {
         data.forEach(element => {
           console.log("volume: " + element.volume)
           console.log("date: " + element.date)
+          /**fügt ein element dazu und überschreibt das vorige TODO: mehrere elemente speichern */
           setData(element);
-          setVisibility(!isVisible);
-        },
-        (error) => {
           setVisibility(true);
-          setError(error);
-        })
-        
+        },
+          (error) => {
+            setVisibility(true);
+            setError(error);
+          })
+
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+  }
+
+  const answer = () => {
+    console.log(data)
   }
 
   return (
@@ -57,7 +62,8 @@ function App() {
 
       <><button onClick={() => fetchData()}>fetchData</button></>
 
-      <Content volumeData={data.volume} tradingDate={data.date} isVisible={isVisible} error={error}/>
+      <Content data={data} isVisible={isVisible} error={error} onClick={() => alert(data)}/>
+      <button onClick={() => answer()}>answer</button>
 
       <Footer />
 
