@@ -9,8 +9,19 @@ class Content extends React.Component {
     }
     render() {
         return (<div className={style.container}>
-        
-        </div>);
+
+            <ul>
+                <li>
+                    SAP volumeData: {this.props.isVisible ? this.props.volumeData : "loading ..."} {" "}
+                    datum: {this.props.isVisible ? this.props.tradingDate : "loading ..."}
+                    {this.props.error ? alert(this.props.error) : null}
+                </li>
+            </ul>
+
+
+
+        </div >
+        );
     }
 }
 
