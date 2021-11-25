@@ -9,9 +9,11 @@ class Content extends React.Component {
     }
     render() {
         return (<div className={style.container}>
+            <ul>
 
-            {this.props.isVisible ? this.props.data.volume : "loading ..."}
+                {this.props.isVisible ? this.props.data.map(item => (<li key={item.id} style={{listStyleType:"none"}}>Volume: {item.volume}</li>)) : " "}
 
+            </ul>
         </div >
         );
     }
