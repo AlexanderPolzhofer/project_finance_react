@@ -13,6 +13,8 @@ function App() {
   const [data, setData] = useState([]);
   const [isVisible, setVisibility] = useState(false);
   const [error, setError] = useState(null);
+  const [areDAXValuesVisible, setVisibilityFromDAXValues] = useState(false);
+  const [valuesDAX, setValuesDAX] = useState([]);
 
   const fetchData = () => {
 
@@ -49,7 +51,23 @@ function App() {
       });
   }
 
+  const getDaxValues = () => {
+    const dax40 = [{
+      id: 1,
+      Name: "ADIDAS AG NA O.N.",
+      ISIN: "DE000A1EWWW0"
+    },
+    {
+      id: 2,
+      Name: "AIRBUS SE",
+      ISIN: "NL0000235190"
+    }
+    ]
+    setVisibilityFromDAXValues(true);
+    setValuesDAX(dax40);
+  }
 
+  
 
   return (
     <div>
@@ -62,7 +80,9 @@ function App() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div onClick ={()=>getDaxValues()}>
           <CardComponent title="DAX" imageUrl="images/flagGermany.png" />
+          </div>
           <CardComponent title="S&P 500" imageUrl="images/flagUSA.png" />
           <CardComponent title="Nikkei 225" imageUrl="images/flagJapan.png" />
         </div>
@@ -71,7 +91,7 @@ function App() {
 
         <Content data={data} isVisible={isVisible} error={error} />
 
-        <Dax40Component />
+        <Dax40Component values={valuesDAX} isVisible={areDAXValuesVisible} />
 
       </div>
 
