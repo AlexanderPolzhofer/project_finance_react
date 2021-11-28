@@ -5,7 +5,7 @@ import CardComponent from './components/CardComponent.js';
 import Content from './components/Content.js';
 import Footer from './components/Footer.js';
 import { useState } from "react";
-import Dax40Component from './components/Dax40Component';
+
 
 
 function App() {
@@ -33,16 +33,12 @@ function App() {
       .then(response => response.json())
       .then(data => {
         data.forEach(element => {
-          console.log("volume: " + element.volume)
-          console.log("date: " + element.date)
-
           dataArray.push(element);
-
         },
-          (error) => {
-            setVisibility(true);
-            setError(error);
-          })
+        (error) => {
+          setVisibility(true);
+          setError(error);
+        })
         setData(dataArray);
         setVisibility(true);
       })
@@ -67,7 +63,7 @@ function App() {
     setValuesDAX(dax40);
   }
 
-  
+
 
   return (
     <div>
@@ -80,8 +76,8 @@ function App() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <div onClick ={()=>getDaxValues()}>
-          <CardComponent title="DAX" imageUrl="images/flagGermany.png" />
+          <div onClick={() => getDaxValues()}>
+            <CardComponent title="DAX" imageUrl="images/flagGermany.png" />
           </div>
           <CardComponent title="S&P 500" imageUrl="images/flagUSA.png" />
           <CardComponent title="Nikkei 225" imageUrl="images/flagJapan.png" />
@@ -89,9 +85,9 @@ function App() {
 
         <><button onClick={() => fetchData()}>fetchData</button></>
 
-        <Content data={data} isVisible={isVisible} error={error} />
+        <Content data={data} isVisible={isVisible} error={error} values={valuesDAX} areDAXValuesVisible={areDAXValuesVisible} />
 
-        <Dax40Component values={valuesDAX} isVisible={areDAXValuesVisible} />
+
 
       </div>
 
