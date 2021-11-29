@@ -16,8 +16,7 @@ class Content extends React.Component {
 
                 {this.props.isVisible ? this.props.data.map(item => (<li key={item.id} style={{ listStyleType: "none" }}>Volume: {item.volume}</li>)) : " "}
 
-
-                {this.props.areDAXValuesVisible ? this.props.values.map(value => (<li key={value.id} style={{ listStyleType: "none", cursor: "pointer" }} onClick={() => alert("clicked")}>Titel: {value.Name} ISIN: {value.ISIN}</li>)) : " "}
+                {this.props.areDAXValuesVisible ? this.props.values.map(value => (<li key={value.id} style={{ listStyleType: "none", cursor: "pointer" }} onClick={() => alert(`clicked on: ${value.Name}`)}>Titel: {value.Name} ISIN: {value.ISIN}</li>)) : " "}
             </ul>
         </div >
     }
