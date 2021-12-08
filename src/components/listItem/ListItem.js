@@ -14,7 +14,7 @@ class ListItem extends Component {
             <div style={{ backgroundColor: "aqua" }}>
                 <ul>
 
-                    {!this.props.isVisible ? "" : this.props.values.map(value => (<li>Titel: {value.Name} {" "} ISIN:  {value.ISIN}</li>))}
+                    {this.props.isVisible ? "" : this.props.values.map(value => (<li>Code: {value.code} {" "} ISIN:  {value.isin} {" "} Exchange: {value.exchange} {" "} desription: {value.description} {" "} dividend per share: {value.dividendShare}</li>))}
 
                 </ul>
             </div>
