@@ -1,9 +1,9 @@
 import './App.css';
-import Navigation from './components/Navigation.js';
-import Heading from "./components/Heading.js";
-import CardComponent from './components/CardComponent.js';
-import Content from './components/Content.js';
-import Footer from './components/Footer.js';
+import Navigation from './components/navigation/Navigation.js';
+import Heading from "./components/heading/Heading.js";
+import CardComponent from './components/card/CardComponent.js';
+import Content from './components/content/Content.js';
+import Footer from './components/footer/Footer.js';
 import { useState } from "react";
 
 
@@ -12,7 +12,6 @@ function App() {
 
   const [data, setData] = useState([]);
   const [isVisible, setVisibility] = useState(false);
-  const [error, setError] = useState(null);
   const [areDAXValuesVisible, setVisibilityFromDAXValues] = useState(false);
   const [valuesDAX, setValuesDAX] = useState([]);
 
@@ -34,10 +33,6 @@ function App() {
       .then(data => {
         data.forEach(element => {
           dataArray.push(element);
-        },
-        (error) => {
-          setVisibility(true);
-          setError(error);
         })
         setData(dataArray);
         setVisibility(true);
@@ -85,7 +80,7 @@ function App() {
 
         <><button onClick={() => fetchData()}>fetchData</button></>
 
-        <Content data={data} isVisible={isVisible} error={error} values={valuesDAX} areDAXValuesVisible={areDAXValuesVisible} />
+        <Content data={data} isVisible={isVisible} values={valuesDAX} areDAXValuesVisible={areDAXValuesVisible} />
 
 
 
