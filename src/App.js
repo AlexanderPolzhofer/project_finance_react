@@ -16,8 +16,6 @@ function App() {
   const [areDAXValuesVisible, setVisibilityFromDAXValues] = useState(false);
   const [valuesDAX, setValuesDAX] = useState([]);
 
-  const [valueObjectSAP, setValueObjectSAP] = useState([]);
-
   const fetchData = () => {
 
     /*example fetch: volume data */
@@ -71,8 +69,6 @@ function App() {
 
     const url = "http://localhost:8080/stock/value/SAP.XETRA";
 
-    let valueObject = [];
-
     fetch(url, {
       method: 'GET',
       headers: {
@@ -81,11 +77,7 @@ function App() {
     })
       .then(response => response.json())
       .then(data => {
-        data.forEach(element => {
-          valueObject.push(element);
-        })
-        setValueObjectSAP(valueObject);
-        console.log({ valueObjectSAP });
+        console.log({ data });
       })
       .catch((error) => {
         console.error('Error:', error);
