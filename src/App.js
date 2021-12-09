@@ -69,7 +69,7 @@ function App() {
 
   const fetchSpringAPI = () => {
 
-    const url = "http://localhost:8080/value/SAP.XETRA";
+    const url = "http://localhost:8080/stock/value/SAP.XETRA";
 
     let valueObject = [];
 
