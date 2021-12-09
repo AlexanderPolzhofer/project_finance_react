@@ -1,12 +1,12 @@
 import './App.css';
 import Navigation from './components/navigation/Navigation.js';
 import Heading from "./components/heading/Heading.js";
-import CardComponent from './components/card/CardComponent.js';
+
 import Content from './components/content/Content.js';
 import Footer from './components/footer/Footer.js';
-import ListItem from './components/listItem/ListItem.js';
-import { useState } from "react";
 
+import React, { useState } from "react";
+import { Cardlist } from './components/cardlist/CardList';
 
 
 function App() {
@@ -66,9 +66,6 @@ function App() {
     setValuesDAX(dax40);
   }
 
-  const handleClick = () => {
-    <ListItem values={() => getDaxValues} />
-  }
 
   const fetchSpringAPI = () => {
 
@@ -79,10 +76,7 @@ function App() {
     fetch(url, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'Origin': 'http://localhost:8080',
-        'Access-Control-Request-Method': 'GET',
-        'Access-Control-Request-Headers': 'Content-Type'
+        'Content-Type': 'application/json'
       }
     })
       .then(response => response.json())
@@ -92,42 +86,34 @@ function App() {
         })
         setValueObjectSAP(valueObject);
         console.log({ valueObjectSAP });
-
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }
 
+
+
+
+
+
   return (
     <div>
-
-
       <div className="App">
         <Navigation />
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div className="heading">
           <Heading />
         </div>
-
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <div onClick={() => getDaxValues()}>
-            <CardComponent title="DAX" imageUrl="images/flagGermany.png" />
-          </div>
-          <CardComponent title="S&P 500" imageUrl="images/flagUSA.png" onClick={() => handleClick} />
-          <CardComponent title="Nikkei 225" imageUrl="images/flagJapan.png" />
-        </div>
-
-        <><button onClick={() => fetchData()}>fetchData</button></>
-        <><button onClick={() => fetchSpringAPI()}>spring data</button></>
-
+        <Cardlist />
         <Content data={data} isVisible={isVisible} values={valuesDAX} areDAXValuesVisible={areDAXValuesVisible} />
 
+        <button onClick={() => fetchData()}>fetching data</button>
+        <button onClick={() => fetchSpringAPI()}>fetching data from spring api</button>
+        <button onClick={() => getDaxValues()}>get dax values from state</button>
 
 
       </div>
-
       <Footer />
-
     </div>
   );
 }

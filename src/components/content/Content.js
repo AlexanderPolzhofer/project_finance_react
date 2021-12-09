@@ -12,31 +12,6 @@ class Content extends React.Component {
         }
     }
 
-    fetchData = () => {
-        const url = "http://localhost:8080/stock/value/SAP.XETRA";
-
-        let stockJSON = [];
-
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(element => {
-                    stockJSON.push(element);
-                })
-                this.setState({ stockJSON: stockJSON });
-                this.setState({ isStockJSONVisible: true });
-                console.log(stockJSON);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
-
     render() {
         return <div className={style.container}>
             <ul>
