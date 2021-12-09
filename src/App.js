@@ -6,7 +6,7 @@ import Content from './components/content/Content.js';
 import Footer from './components/footer/Footer.js';
 
 import React, { useState } from "react";
-import { Cardlist } from './components/cardlist/CardList';
+import { Cardlist } from './components/cardList/CardList';
 
 
 function App() {
@@ -15,6 +15,8 @@ function App() {
   const [isVisible, setVisibility] = useState(false);
   const [areDAXValuesVisible, setVisibilityFromDAXValues] = useState(false);
   const [valuesDAX, setValuesDAX] = useState([]);
+
+
 
   const fetchData = () => {
 
@@ -69,6 +71,8 @@ function App() {
 
     const url = "http://localhost:8080/stock/value/SAP.XETRA";
 
+    let obj = {};
+
     fetch(url, {
       method: 'GET',
       headers: {
@@ -77,16 +81,12 @@ function App() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log({ data });
+        data = obj;
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }
-
-
-
-
 
 
   return (
@@ -102,7 +102,6 @@ function App() {
         <button onClick={() => fetchData()}>fetching data</button>
         <button onClick={() => fetchSpringAPI()}>fetching data from spring api</button>
         <button onClick={() => getDaxValues()}>get dax values from state</button>
-
 
       </div>
       <Footer />
