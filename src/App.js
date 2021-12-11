@@ -7,6 +7,8 @@ import Footer from './components/footer/Footer.js';
 
 import React, { useState } from "react";
 import { Cardlist } from './components/cardList/CardList';
+import TableComponent from './components/table/TableComponent.js';
+
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
   const [isVisible, setVisibility] = useState(false);
   const [areDAXValuesVisible, setVisibilityFromDAXValues] = useState(false);
   const [valuesDAX, setValuesDAX] = useState([]);
+
+
 
 
 
@@ -82,11 +86,13 @@ function App() {
       .then(response => response.json())
       .then(data => {
         data = obj;
+        console.log(obj);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }
+
 
 
   return (
@@ -103,6 +109,7 @@ function App() {
         <button onClick={() => fetchSpringAPI()}>fetching data from spring api</button>
         <button onClick={() => getDaxValues()}>get dax values from state</button>
 
+        <TableComponent />
       </div>
       <Footer />
     </div>

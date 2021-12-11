@@ -8,7 +8,7 @@ class Content extends React.Component {
         super(props);
         this.state = {
             stockJSON: [],
-            isStockJSONVisible: false
+            isStockJSONVisible: true
         }
     }
 
