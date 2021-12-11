@@ -2,25 +2,16 @@ import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import { useEffect } from 'react';
-
-
-
-function createData(name, code, dividenShare, exchange, isin) {
-    return { name, code, dividenShare, exchange, isin };
-}
-
-const rows = [
-    createData('SAP', 159, 6.0, 24)
-
-];
+import { useEffect, useState } from 'react';
 
 
 export default function BasicTable() {
+
+    const [value, setValue] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchDataTest = async () => {
@@ -29,52 +20,65 @@ export default function BasicTable() {
             try {
                 const response = await fetch(url);
                 const valueAdidas = await response.json();
-                console.log(valueAdidas);
-
+                setValue(valueAdidas);
+                setIsLoading(false);
             } catch (err) {
-                console.log("Error: " + err)
+                console.log("Error: " + err.stack)
             }
         }
         fetchDataTest();
     }, []);
 
 
+    const getValue = () => {
+        const isin = value.General.ISIN;
+        const name = value.General.Name;
+        const code = value.General.Code;
+        const exchange = value.General.Exchange;
+        const dividendShare = value.General.CurrencySymbol;
+
+
+        console.log(isin + name + code + exchange + dividendShare);
+    }
+
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
+            {
+                isLoading ? " loading ... " :
+                    <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
+
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Dax Value</TableCell>
+
+                                <TableCell align="right">Code</TableCell>
+                                <TableCell align="right">DIVIDEND per share</TableCell>
+                                <TableCell align="right">EXCHANGE</TableCell>
+                                <TableCell align="right">ISIN</TableCell>
+                            </TableRow>
+                        </TableHead>
+
+                        <TableBody>
+
+                            <TableRow
+                                key={`${value.General.Name}`}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    {`${value.General.Name}`}
+                                </TableCell>
+                                <TableCell align="right">{`${value.General.Code}`}</TableCell>
+                                <TableCell align="right">{`${value.General.CurrencySymbol}`}</TableCell>
+                                <TableCell align="right">{`${value.General.Exchange}`}</TableCell>
+                                <TableCell align="right">{`${value.General.ISIN}`}</TableCell>
+                            </TableRow>
+
+                        </TableBody>
+                    </Table>
+            }
 
 
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Dax Value</TableCell>
-
-                        <TableCell align="right">Code</TableCell>
-                        <TableCell align="right">DIVIDEND per share</TableCell>
-                        <TableCell align="right">EXCHANGE</TableCell>
-                        <TableCell align="right">ISIN</TableCell>
-                    </TableRow>
-                </TableHead>
-
-
-
-                <TableBody>
-                    {rows.map((row) => (
-                        <TableRow
-                            key={row.name}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell align="right">{row.name}</TableCell>
-                            <TableCell align="right">{row.code}</TableCell>
-                            <TableCell align="right">{row.dividenShare}</TableCell>
-                            <TableCell align="right">{row.exchange}</TableCell>
-                            <TableCell align="right">{row.isin}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+            <button onClick={() => getValue()}>LOG VALUE ON CONSOLE</button>
         </div>
     );
 }
