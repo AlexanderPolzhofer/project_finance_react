@@ -27,20 +27,14 @@ export default function BasicTable() {
             }
         }
 
-        fetchDataTest();
+
+
+        setTimeout(() => {
+            fetchDataTest()
+        }, 3000);
+
     }, []);
 
-
-    const getValue = () => {
-        const isin = value.isin;
-        const name = value.name;
-        const code = value.code;
-        const exchange = value.exchange;
-        const dividendShare = value.dividendShare;
-
-
-        console.log(isin + name + code + exchange + dividendShare);
-    }
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -77,9 +71,6 @@ export default function BasicTable() {
                         </TableBody>
                     </Table>
             }
-
-
-            <button onClick={() => getValue()}>LOG VALUE ON CONSOLE</button>
         </div>
     );
 }
