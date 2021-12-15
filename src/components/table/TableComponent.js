@@ -15,27 +15,28 @@ export default function BasicTable() {
 
     useEffect(() => {
         const fetchDataTest = async () => {
-            const url = "https://api.leeway.tech/api/v1/public/fundamentals/ADS.XETRA?apitoken=37zxr4r5zrfyuhr143n4hq";
+            const url = "http://localhost:8080/stock/value/SAP.XETRA";
 
             try {
                 const response = await fetch(url);
-                const valueAdidas = await response.json();
-                setValue(valueAdidas);
+                const valueSAP = await response.json();
+                setValue(valueSAP);
                 setIsLoading(false);
             } catch (err) {
                 console.log("Error: " + err.stack)
             }
         }
+
         fetchDataTest();
     }, []);
 
 
     const getValue = () => {
-        const isin = value.General.ISIN;
-        const name = value.General.Name;
-        const code = value.General.Code;
-        const exchange = value.General.Exchange;
-        const dividendShare = value.General.CurrencySymbol;
+        const isin = value.isin;
+        const name = value.name;
+        const code = value.code;
+        const exchange = value.exchange;
+        const dividendShare = value.dividendShare;
 
 
         console.log(isin + name + code + exchange + dividendShare);
@@ -61,16 +62,16 @@ export default function BasicTable() {
                         <TableBody>
 
                             <TableRow
-                                key={`${value.General.Name}`}
+                                key={`${value.name}`}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {`${value.General.Name}`}
+                                    {`${value.name}`}
                                 </TableCell>
-                                <TableCell align="right">{`${value.General.Code}`}</TableCell>
-                                <TableCell align="right">{`${value.General.CurrencySymbol}`}</TableCell>
-                                <TableCell align="right">{`${value.General.Exchange}`}</TableCell>
-                                <TableCell align="right">{`${value.General.ISIN}`}</TableCell>
+                                <TableCell align="right">{`${value.code}`}</TableCell>
+                                <TableCell align="right">{`${value.dividendShare}`}</TableCell>
+                                <TableCell align="right">{`${value.exchange}`}</TableCell>
+                                <TableCell align="right">{`${value.isin}`}</TableCell>
                             </TableRow>
 
                         </TableBody>
