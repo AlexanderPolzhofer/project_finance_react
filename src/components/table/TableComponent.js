@@ -7,6 +7,7 @@ import TableRow from '@mui/material/TableRow';
 
 import { useEffect, useState } from 'react';
 
+
 export default function BasicTable() {
 
     const [value, setValue] = useState({});
@@ -17,7 +18,7 @@ export default function BasicTable() {
             const url = "http://localhost:8080/stock/value/SAP.XETRA";
 
             try {
-                const response = await fetch(url);
+                const response = await fetch();
                 const valueSAP = await response.json();
                 setValue(valueSAP);
                 setIsLoading(false);

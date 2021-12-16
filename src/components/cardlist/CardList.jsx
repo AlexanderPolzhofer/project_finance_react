@@ -12,3 +12,5 @@ export const Cardlist = () => {
 
     );
 }
+
+export default Cardlist;

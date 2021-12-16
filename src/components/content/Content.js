@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./Content.module.css";
 import ListItem from "../listItem/ListItem.js";
-
-
 class Content extends React.Component {
     constructor(props) {
         super(props);
@@ -22,10 +20,6 @@ class Content extends React.Component {
 
                 <ListItem isVisible={this.state.isStockJSONVisible} values={this.state.stockJSON} />
             </ul>
-
-
-
-
         </div >
     }
 }
