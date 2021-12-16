@@ -18,7 +18,7 @@ export default function BasicTable() {
             const url = "http://localhost:8080/stock/value/SAP.XETRA";
 
             try {
-                const response = await fetch();
+                const response = await fetch(url);
                 const valueSAP = await response.json();
                 setValue(valueSAP);
                 setIsLoading(false);
@@ -28,7 +28,7 @@ export default function BasicTable() {
         }
         setTimeout(() => {
             fetchDataTest()
-        }, 3000);
+        }, 1000);
 
     }, []);
 
