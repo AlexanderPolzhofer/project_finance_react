@@ -7,7 +7,6 @@ import TableRow from '@mui/material/TableRow';
 
 import { useEffect, useState } from 'react';
 
-
 export default function BasicTable() {
 
     const [value, setValue] = useState({});
@@ -26,9 +25,6 @@ export default function BasicTable() {
                 console.log("Error: " + err.stack)
             }
         }
-
-
-
         setTimeout(() => {
             fetchDataTest()
         }, 3000);
