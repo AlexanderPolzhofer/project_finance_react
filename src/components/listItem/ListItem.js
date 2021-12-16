@@ -1,25 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-class ListItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+const ListItem = () => {
 
-        }
-    }
+    let navigate = useNavigate();
 
-
-    render() {
-        return (
-            <div style={{ backgroundColor: "aqua" }}>
-                <ul>
-
-                    {this.props.isVisible ? "" : this.props.values.map(value => (<li>Code: {value.code} {" "} ISIN:  {value.isin} {" "} Exchange: {value.exchange} {" "} desription: {value.description} {" "} dividend per share: {value.dividendShare}</li>))}
-
-                </ul>
-            </div>
-        );
-    }
+    return (
+        <div style={{ backgroundColor: "aqua" }} >
+            <button onClick={() => navigate('/dax40')}>BACK</button>
+            <h2>LISTITEM</h2>
+        </div>
+    );
 }
 
 export default ListItem;

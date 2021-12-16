@@ -4,14 +4,19 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-
 import { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function BasicTable() {
 
     const [value, setValue] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+
+    let navigateToListItem = useNavigate();
+
+    const handleOnListItemClick = () => {
+        navigateToListItem(`/dax40/${value.name}`)
+    }
 
     useEffect(() => {
         const fetchDataTest = async () => {
@@ -37,6 +42,7 @@ export default function BasicTable() {
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             {
                 isLoading ? " loading ... " :
+
                     <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
 
                         <TableHead>
@@ -54,8 +60,8 @@ export default function BasicTable() {
 
                             <TableRow
                                 key={`${value.name}`}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { cursor: "pointer" } }}
+                                onClick={() => handleOnListItemClick()} >
                                 <TableCell component="th" scope="row">
                                     {`${value.name}`}
                                 </TableCell>
@@ -64,7 +70,6 @@ export default function BasicTable() {
                                 <TableCell align="right">{`${value.exchange}`}</TableCell>
                                 <TableCell align="right">{`${value.isin}`}</TableCell>
                             </TableRow>
-
                         </TableBody>
                     </Table>
             }
