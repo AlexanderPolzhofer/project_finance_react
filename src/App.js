@@ -18,6 +18,8 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/dax40" element={<TableComponent />} />
           <Route path="/dax40/:value" element={<ListItem />} />
+          <Route path="/S&P500" element={<div>S&P 500</div>} />
+          <Route path="/nikkei225" element={<div>NIKKEI 225</div>} />
         </Routes>
       </div>
       <Footer />

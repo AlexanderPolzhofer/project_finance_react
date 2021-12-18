@@ -4,11 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Cardcomponent = ({ title, imageUrl, id }) => {
 
-    let navigate = useNavigate();
+    let navigateDAX = useNavigate();
+    let navigateSP500 = useNavigate();
+    let navigateNikkei = useNavigate();
 
     const handleClick = () => {
         if (id === 1) {
-            navigate('/dax40')
+            navigateDAX('/dax40')
+        } else if (id === 2) {
+            navigateSP500('/S&P500')
+        } else if (id === 3) {
+            navigateNikkei('/nikkei225')
         }
     }
 

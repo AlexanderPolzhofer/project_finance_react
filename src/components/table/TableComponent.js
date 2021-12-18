@@ -61,7 +61,7 @@ export default function BasicTable() {
                             <TableRow
                                 key={`${value.name}`}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { cursor: "pointer" } }}
-                                onClick={() => handleOnListItemClick()} >
+                                onClick={(value) => handleOnListItemClick(value)} >
                                 <TableCell component="th" scope="row">
                                     {`${value.name}`}
                                 </TableCell>

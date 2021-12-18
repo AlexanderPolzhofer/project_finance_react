@@ -1,14 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ListItem = () => {
 
     let navigate = useNavigate();
+    let { value } = useParams();
 
     return (
         <div style={{ backgroundColor: "aqua" }} >
             <button onClick={() => navigate('/dax40')}>BACK</button>
-            <h2>LISTITEM</h2>
+            <h2>{value}</h2>
+           
         </div>
     );
 }
