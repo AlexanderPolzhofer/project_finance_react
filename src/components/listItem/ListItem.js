@@ -7,10 +7,11 @@ const ListItem = () => {
     let { value } = useParams();
 
     return (
-        <div style={{ backgroundColor: "aqua" }} >
+        <div>
             <button onClick={() => navigate('/dax40')}>BACK</button>
             <h2>{value}</h2>
-           
+            <span>{value.description}</span>
+
         </div>
     );
 }

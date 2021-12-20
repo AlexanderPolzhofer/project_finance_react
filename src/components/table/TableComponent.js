@@ -31,9 +31,8 @@ export default function BasicTable() {
                 console.log("Error: " + err.stack)
             }
         }
-        setTimeout(() => {
-            fetchDataTest()
-        }, 1000);
+       
+            fetchDataTest();
 
     }, []);
 
