@@ -11,3 +11,7 @@ width: 100%;
 margin-top: 34px;
 }
 
+p:hover{
+cursor: pointer;
+opacity: 0.8;
+}

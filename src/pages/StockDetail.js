@@ -21,7 +21,7 @@ export default function StockDetail() {
             const dataVwap = await response.json();
 
             setVwapData(dataVwap);
-            setIsLoading(false);
+            setIsLoading(true);
             console.log(dataVwap)
         };
 

@@ -1,15 +1,18 @@
 import React from 'react';
-import style from "./CardComponent.module.css";
+
 import { useNavigate } from 'react-router-dom';
+
+import style from "./CardComponent.module.css";
+
 
 const Cardcomponent = ({ title, imageUrl, id }) => {
 
     let navigate = useNavigate();
-  
+
 
     const handleClick = () => {
-        navigate("/indices",{state:{"name":title,"id":id}});
-       
+        navigate("/indices", { state: { "name": title, "id": id } });
+
     }
 
     return (

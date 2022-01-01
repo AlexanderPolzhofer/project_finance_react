@@ -1,5 +1,6 @@
-import Cardlist from '../cardList/CardList.jsx';
-import Heading from '../heading/Heading.js';
+import Cardlist from '../../components/cardList/CardList.jsx';
+import Heading from '../../components/heading/Heading.js';
+
 import './Homepage.style.css';
 
 const HomepageComponent = () => {

@@ -21,7 +21,7 @@ export default function IndexScreen() {
     }
 
     useEffect(() => {
-        setValues([{ "title": "SAPSE", "code": "SAP", "isin": "1234" }, { "title": "ADISE", "code": "ADIDAS", "isin": "4567" }])
+        setValues([{ "name": "SAPSE", "code": "SAP", "isin": "1234" }, { "name": "ADISE", "code": "ADIDAS", "isin": "4567" }])
         // const fetchDataTest = async () => {
         //     const url = "http://localhost:8080/indices/DAX/values";
 
@@ -63,13 +63,11 @@ export default function IndexScreen() {
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             {
 
-
                 <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
 
                     <TableHead>
                         <TableRow>
                             <TableCell>Dax Value</TableCell>
-
                             <TableCell align="right">Code</TableCell>
                             <TableCell align="right">DIVIDEND per share</TableCell>
                             <TableCell align="right">EXCHANGE</TableCell>
