@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Description from '../components/description/description.component';
+
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -33,7 +35,7 @@ export default function StockDetail() {
 
         fetchingData();
     }, [state.symbol]);
-    console.log(stockDetail.General.Description);
+
 
     return (
         <div>
@@ -41,11 +43,11 @@ export default function StockDetail() {
 
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column' }}>
 
-                <h1>{state.name}</h1>
+                <u><h1>{state.name}</h1></u>
 
-                <div>
-                    {isLoading ? '...loading' : stockDetail.General.Description}
-                </div>
+                
+                    {isLoading ? '...loading' : <Description description={stockDetail.General.Description} />}
+                
             </div>
         </div>
     );
