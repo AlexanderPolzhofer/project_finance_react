@@ -6,17 +6,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DAX_DATA from '../assets/dax-data';
 
 export default function IndexScreen() {
 
     const [values, setValues] = useState([]);
-    const { state } = useLocation();
-   
-   //state object from cardComponent
-    const { id, name } = state;
-    console.log(id + "- " + name);
 
     let nav = useNavigate();
     const handleOnListItemClick = (value) => {
@@ -38,8 +33,6 @@ export default function IndexScreen() {
                 <TableCell component="th" scope="row">
                     {`${value.name}`}
                 </TableCell>
-                <TableCell align="right">{`${value.symbol}`}</TableCell>
-                <TableCell align="right">{`${value.dividendShare}`}</TableCell>
                 <TableCell align="right">{`${value.exchange}`}</TableCell>
                 <TableCell align="right">{`${value.isin}`}</TableCell>
             </TableRow>)
@@ -48,16 +41,14 @@ export default function IndexScreen() {
     }
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: '21px' }}>
             {
                 <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow >
+                        <TableRow>
                             <TableCell style={{ fontWeight: 'bold' }}>Dax Value</TableCell>
-                            <TableCell align="right" style={{ fontWeight: 'bold' }}>Code</TableCell>
-                            <TableCell align="right" style={{ fontWeight: 'bold' }}>DIVIDEND per share</TableCell>
                             <TableCell align="right" style={{ fontWeight: 'bold' }}>EXCHANGE</TableCell>
-                            <TableCell align="right" style={{ fontWeight: 'bold' }}>ISIN</TableCell>
+                            <TableCell align="right" style={{ fontWeight: 'bold', }}>ISIN</TableCell>
                         </TableRow>
                     </TableHead>
 

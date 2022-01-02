@@ -11,7 +11,7 @@ const Cardcomponent = ({ title, imageUrl, id }) => {
 
 
     const handleClick = () => {
-        navigate("/indices", { state: { "name": title, "id": id } });
+        navigate("/daxValues", { state: { "name": title, "id": id } });
 
     }
 

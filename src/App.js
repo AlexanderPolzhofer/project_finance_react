@@ -17,7 +17,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/indices" element={<IndexScreen />} />
+          <Route path="/daxValues" element={<IndexScreen />} />
           <Route path="/indexDetails" element={<StockDetail />} />
         </Routes>
       </div>

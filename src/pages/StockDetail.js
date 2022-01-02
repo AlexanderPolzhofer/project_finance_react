@@ -1,44 +1,52 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { useEffect, useState } from 'react';
+import React from 'react';
+
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export default function StockDetail() {
 
-    const [vwapData, setVwapData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    const apiKey = '37zxr4r5zrfyuhr143n4hq';
+
+    const [stockDetail, setStockDetail] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
+        const fetchingData = async () => {
 
-        const getDataVwap = async () => {
-            const url = 'https://www.alphavantage.co/query?function=VWAP&symbol=IBM&interval=15min&apikey=demo';
+            const url = `https://api.leeway.tech/api/v1/public/fundamentals/${state.symbol}.XETRA?apitoken=${apiKey}`;
 
-            const response = await fetch(url);
-            const dataVwap = await response.json();
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
 
-            setVwapData(dataVwap);
-            setIsLoading(true);
-            console.log(dataVwap)
-        };
+                console.log(data)
+                setStockDetail(data)
+                setIsLoading(false)
 
-        getDataVwap();
-    }, []);
+            } catch (error) {
+                console.log(error.stack)
+            }
+        }
 
-
-    const { state } = useLocation();
-    console.log(state.name);
+        fetchingData();
+    }, [state.symbol]);
+    console.log(stockDetail.General.Description);
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <h1>INfos</h1>
+        <div>
+            <button onClick={() => navigate('/daxValues')}>BACK</button>
 
-            {state.title}, {state.isin},
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column' }}>
 
+                <h1>{state.name}</h1>
 
+                <div>
+                    {isLoading ? '...loading' : stockDetail.General.Description}
+                </div>
+            </div>
         </div>
     );
 }
