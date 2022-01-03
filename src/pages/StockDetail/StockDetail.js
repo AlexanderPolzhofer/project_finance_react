@@ -19,29 +19,26 @@ export default function StockDetail() {
 
     useEffect(() => {
         const fetchingData = async () => {
-
             const url = `https://api.leeway.tech/api/v1/public/fundamentals/${state.symbol}.XETRA?apitoken=${apiKey}`;
-
             try {
                 const response = await fetch(url);
                 const data = await response.json();
                 setStockDetail(data)
                 setIsLoading(false)
             } catch (error) {
-                console.log(error.stack)
+                console.log('ERROR: ' + error)
             }
         }
-
         fetchingData();
     }, [state.symbol]);
 
 
     return (
         <div className='container'>
-            <div className='header'>
+         
                 <Custombutton className='button' to='/daxValues' text='&#10094;' />
                 <u><h1>{state.name}</h1></u>
-            </div>
+            
             <div>
                 {isLoading ? '...loading' : <Description description={stockDetail.General.Description} />}
             </div>
