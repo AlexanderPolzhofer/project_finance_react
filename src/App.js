@@ -5,8 +5,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Homepage from './pages/homepage/Homepage.component.jsx';
-import IndexScreen from './pages/IndexScreen';
-import StockDetail from './pages/StockDetail';
+import IndexScreen from './pages/Indexscreen/IndexScreen';
+import StockDetail from './pages/StockDetail/StockDetail';
 
 
 function App() {

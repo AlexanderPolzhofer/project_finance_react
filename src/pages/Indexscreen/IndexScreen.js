@@ -7,7 +7,7 @@ import TableRow from '@mui/material/TableRow';
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DAX_DATA from '../assets/dax-data';
+import DAX_DATA from '../../assets/dax-data';
 
 export default function IndexScreen() {
 

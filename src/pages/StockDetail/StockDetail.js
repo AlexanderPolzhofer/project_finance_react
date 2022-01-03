@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Description from '../components/description/description.component';
+import Description from '../../components/description/description.component';
 
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Custombutton from '../../components/custom-button/CustomButton.component';
+
+import './StockDetail.styles.css';
 
 export default function StockDetail() {
 
-    const navigate = useNavigate();
     const { state } = useLocation();
     const apiKey = '37zxr4r5zrfyuhr143n4hq';
 
@@ -23,11 +25,8 @@ export default function StockDetail() {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-
-                console.log(data)
                 setStockDetail(data)
                 setIsLoading(false)
-
             } catch (error) {
                 console.log(error.stack)
             }
@@ -38,17 +37,15 @@ export default function StockDetail() {
 
 
     return (
-        <div>
-            <button onClick={() => navigate('/daxValues')}>BACK</button>
-
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column' }}>
-
+        <div className='container'>
+            <div className='header'>
+                <Custombutton className='button' to='/daxValues' text='&#10094;' />
                 <u><h1>{state.name}</h1></u>
-
-                
-                    {isLoading ? '...loading' : <Description description={stockDetail.General.Description} />}
-                
             </div>
+            <div>
+                {isLoading ? '...loading' : <Description description={stockDetail.General.Description} />}
+            </div>
+
         </div>
     );
 }
