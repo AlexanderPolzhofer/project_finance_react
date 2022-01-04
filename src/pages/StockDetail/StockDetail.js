@@ -41,7 +41,8 @@ export default function StockDetail() {
             <Custombutton className='button' to='/daxValues' text='&#10094;' />
             <u><h1>{state.name}</h1></u>
 
-            <div className='content'> {isLoading ? '...loading' : <Description description={stockDetail.description} />}
+            <div className='content'>
+                {isLoading ? '...loading' : <Description description={stockDetail.description} />}
             </div>
         </div>
     );
