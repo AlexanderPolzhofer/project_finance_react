@@ -2,10 +2,17 @@
     background-color: rgb(94, 94, 94);
     color: white;
     font-size: x-large;
-    padding: 21px;
-    display: flex;
+    padding: 8px;
+    display: grid;
     justify-content: space-between;
+    grid-template-columns: 33vw 34vw 33vw;
     align-items: center;
+}
+
+.icon{
+    display: flex;
+    margin-right: 21px;
+    justify-content: center;
 }
 
 .multilineColor{

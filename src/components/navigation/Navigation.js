@@ -12,13 +12,14 @@ import CustomizedInput from "../customized-input/CustomizedInput.component";
 const Navigation = () => {
 
     let homeNavigate = useNavigate();
+    let navigateToNotes = useNavigate();
 
     const homeIconHandleClick = () => {
         homeNavigate('/');
     }
 
-    const chatIconHandleClick = () => {
-        alert('clicked on NOTES');
+    const notesIconClick = () => {
+        navigateToNotes('/notes');
     }
 
     const filterListHandleClick = () => {
@@ -27,10 +28,17 @@ const Navigation = () => {
 
     return (
         <div className={style.container}>
-            <HomeIcon onClick={() => homeIconHandleClick()} className={style.icon} />
-            <ChatIcon onClick={() => chatIconHandleClick()} className={style.icon} />
-            <FilterList onClick={() => filterListHandleClick()} className={style.icon} />
-            <CustomizedInput />
+            <div>
+                <HomeIcon onClick={() => homeIconHandleClick()} className={style.icon} />
+            </div>
+            <div>
+                <CustomizedInput />
+            </div>
+            <div>
+                <ChatIcon onClick={() => notesIconClick()} className={style.icon} />
+                <FilterList onClick={() => filterListHandleClick()} className={style.icon} />
+            </div>
+
         </div>
     );
 }
