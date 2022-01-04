@@ -11,7 +11,7 @@ import './StockDetail.styles.css';
 export default function StockDetail() {
 
     const { state } = useLocation();
-    const apiKey = '37zxr4r5zrfyuhr143n4hq';
+    /*const apiKey = '37zxr4r5zrfyuhr143n4hq';*/
 
     const [stockDetail, setStockDetail] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,9 @@ export default function StockDetail() {
 
     useEffect(() => {
         const fetchingData = async () => {
-            const url = `https://api.leeway.tech/api/v1/public/fundamentals/${state.symbol}.XETRA?apitoken=${apiKey}`;
+            /*const url = `https://api.leeway.tech/api/v1/public/fundamentals/${state.symbol}.XETRA?apitoken=${apiKey}`;*/
+            const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
+
             try {
                 const response = await fetch(url);
                 const data = await response.json();
@@ -35,14 +37,12 @@ export default function StockDetail() {
 
     return (
         <div className='container'>
-         
-                <Custombutton className='button' to='/daxValues' text='&#10094;' />
-                <u><h1>{state.name}</h1></u>
-            
-            <div>
-                {isLoading ? '...loading' : <Description description={stockDetail.General.Description} />}
-            </div>
 
+            <Custombutton className='button' to='/daxValues' text='&#10094;' />
+            <u><h1>{state.name}</h1></u>
+
+            <div className='content'> {isLoading ? '...loading' : <Description description={stockDetail.description} />}
+            </div>
         </div>
     );
 }

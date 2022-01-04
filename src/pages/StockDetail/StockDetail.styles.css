@@ -10,3 +10,8 @@
     margin-left: 13px;
     font-weight: bolder;
 }
+
+.content{
+    display: flex;
+    justify-content: center;
+}
