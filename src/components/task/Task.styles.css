@@ -1,0 +1,28 @@
+.taskWrapper{
+margin-top: 13px;
+display: grid;
+grid-template-columns: 30% 57% 13%;
+grid-auto-rows: minmax(100px, auto);
+width: 50vw;
+}
+
+.box1{
+background-color: blueviolet;
+padding:13px;
+}
+
+.box2{
+background-color: aqua;
+padding:13px;
+}
+
+.box3{
+background-color: yellowgreen;
+padding:13px;
+}
+
+.box4{
+background-color: goldenrod;
+padding:13px;
+grid-column-start: span 3;
+}
