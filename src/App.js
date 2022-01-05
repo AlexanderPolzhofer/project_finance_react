@@ -9,18 +9,18 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from './pages/homepage/Homepage.component.jsx';
 import IndexScreen from './pages/Indexscreen/IndexScreen';
 import StockDetail from './pages/StockDetail/StockDetail';
-import Notes from './components/notes/Notes.component';
+import TaskList from '../src/components/tasklist/Tasklist.component';
 
 
 function App() {
 
   return (
-    <div>
+    <div className='wrapper'>
       <div className="App">
         <Navigation />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes" element={<TaskList />} />
           <Route path="/daxValues" element={<IndexScreen />} />
           <Route path="/indexDetails" element={<StockDetail />} />
         </Routes>

@@ -28,13 +28,13 @@ const Navigation = () => {
 
     return (
         <div className={style.container}>
-            <div>
+            <div className={style.left}>
                 <HomeIcon onClick={() => homeIconHandleClick()} className={style.icon} />
             </div>
             <div>
                 <CustomizedInput />
             </div>
-            <div>
+            <div className={style.right}>
                 <ChatIcon onClick={() => notesIconClick()} className={style.icon} />
                 <FilterList onClick={() => filterListHandleClick()} className={style.icon} />
             </div>

@@ -1,10 +1,11 @@
 import React from "react";
 import style from "./Heading.module.css";
 
-const Heading = () => {
+const Heading = (props) => {
+    const { title } = props;
 
     return (<div className={style.heading}>
-        <p>Indizes</p>
+        <p>{title}</p>
     </div>);
 
 }

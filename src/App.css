@@ -1,6 +1,12 @@
 .App {
   text-align: center; 
-  min-height: 86vh;
+  min-height: 88vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper{
+  overflow: hidden;
 }
 
 .heading{

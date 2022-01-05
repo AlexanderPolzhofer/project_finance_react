@@ -8,7 +8,7 @@ const HomepageComponent = () => {
     return (
         <div>
             <div className='center-heading'>
-                <Heading />
+                <Heading title='Wertpapiere' />
             </div>
             <Cardlist />
         </div>

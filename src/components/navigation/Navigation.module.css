@@ -5,18 +5,22 @@
     padding: 8px;
     display: grid;
     justify-content: space-between;
-    grid-template-columns: 33vw 34vw 33vw;
+    grid-template-columns: 30vw 30vw 30vw;
     align-items: center;
 }
 
-.icon{
+.left{
     display: flex;
-    margin-right: 21px;
+    justify-content: left;
+}
+
+.right{
+    display: flex;
     justify-content: center;
 }
 
-.multilineColor{
-    color:'white';
+.icon{
+margin-right: 13px;
 }
 
 .icon:hover{
