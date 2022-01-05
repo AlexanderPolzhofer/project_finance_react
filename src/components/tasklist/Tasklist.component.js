@@ -1,14 +1,16 @@
 import React from 'react';
 
-
-import Task from '../task/Task.component';
-
 import './Tasklist.styles.css';
 
-const Tasklist = () => {
+const Tasklist = (props) => {
+    const { tasks } = props;
+
+  
     return (
         <div className='container'>
-            <Task />
+
+            {tasks}
+          
         </div>
     );
 }
