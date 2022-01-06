@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import TaskAdder from '../taskadder/TaskAdder.component';
 import Task from '../task/Task.component';
@@ -14,10 +14,14 @@ const Notes = () => {
         setTasks(<Task />)
     }, []);
 
+    const input = (value) => {
+        console.log('inputvalue: ' + value)
+    }
+
     return (
         <div className='notes-container'>
             <u><h1>Notizen</h1></u>
-            <TaskAdder />
+            <TaskAdder input={input} />
             <TaskList tasks={tasks} />
         </div>
     );

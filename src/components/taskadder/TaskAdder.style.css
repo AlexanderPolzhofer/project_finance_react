@@ -10,6 +10,10 @@
     padding: auto;
 }
     
+button:hover{
+    cursor: pointer;
+    opacity: 0.85;
+}
     
 .last-item{
     grid-column-start: span 3;
