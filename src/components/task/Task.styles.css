@@ -7,22 +7,15 @@ width: 50vw;
 }
 
 .box1{
-background-color: blueviolet;
-padding:13px;
+    border-right: solid;
 }
 
 .box2{
-background-color: aqua;
-padding:13px;
-}
-
-.box3{
-background-color: yellowgreen;
-
+    border-right: solid;
 }
 
 .box4{
-background-color: goldenrod;
+border-top:solid;
 padding:13px;
 grid-column-start: span 3;
 }

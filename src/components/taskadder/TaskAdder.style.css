@@ -4,6 +4,7 @@
     grid-template-columns: 30% 57% 13%;
     grid-auto-rows: minmax(50px, auto);
     width: 50vw;
+    margin-bottom: 21px;
 }
     
 .item{

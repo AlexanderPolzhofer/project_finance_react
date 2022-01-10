@@ -8,20 +8,23 @@ import './Notes.styles.css'
 
 const Notes = () => {
 
-    const [tasks, setTasks] = useState([<Task />]);
+    const [stockName, setStockName] = useState('');
+    const [notes, setNotes] = useState('');
+    const [tasks, setTasks] = useState([]);
 
-    useEffect(() => {
-        setTasks(<Task />)
-    }, []);
+    const addTask = value => {
+        alert("adding task: " + value)
+        console.log(value)
+        setStockName(value.name)
+        setNotes(value.notes)
 
-    const input = (value) => {
-        console.log('inputvalue: ' + value)
+        setTasks(tasks =>[...tasks,value])
     }
 
     return (
         <div className='notes-container'>
             <u><h1>Notizen</h1></u>
-            <TaskAdder input={input} />
+            <TaskAdder onTaskAdded={addTask} />
             <TaskList tasks={tasks} />
         </div>
     );
