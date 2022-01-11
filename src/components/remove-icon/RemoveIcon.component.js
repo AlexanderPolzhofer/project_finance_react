@@ -2,7 +2,7 @@ import React from 'react';
 
 const RemoveIcon = () => {
     return (
-        <div onClick={(event) => console.log(event)}>
+        <div>
             &#10006;
         </div>
     );

@@ -14,13 +14,15 @@ const Notes = () => {
         setTasks(tasks => [...tasks, value])
     }
 
-    
+    const onDelete = (id) => {
+        alert("Notes: " + id)
+    }
 
     return (
         <div className='notes-container'>
             <u><h1>Notizen</h1></u>
             <TaskAdder onTaskAdded={addTask} />
-            <TaskList tasks={tasks} />
+            <TaskList tasks={tasks} onDelete = {onDelete}/>
         </div>
     );
 }

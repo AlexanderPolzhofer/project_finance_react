@@ -12,6 +12,7 @@
     border-right: solid;
     border-color: lightgray;
     padding:5px;
+    grid-column-start: span 1;
 }
 
 .stock{
