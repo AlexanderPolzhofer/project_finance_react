@@ -20,7 +20,7 @@ export default function IndexScreen() {
 
     useEffect(() => {
         setValues(DAX_DATA)
-    }, []);
+    }, [values]);
 
     const getTableRows = () => {
         let rows = [];

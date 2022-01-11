@@ -15,7 +15,7 @@ import Notes from './components/notes/Notes.component';
 function App() {
 
   return (
-    <div className='wrapper'>
+    <div>
       <div className="App">
         <Navigation />
         <Routes>

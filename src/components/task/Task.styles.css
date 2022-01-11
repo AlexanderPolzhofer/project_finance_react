@@ -1,21 +1,41 @@
 .taskWrapper{
-margin-top: 13px;
-display: grid;
-grid-template-columns: 30% 57% 13%;
-grid-auto-rows: minmax(100px, auto);
-width: 50vw;
+    margin-top: 13px;
+    display: grid;
+    grid-template-columns: 30% 57% 13%;
+    grid-auto-rows: minmax(100px, auto);
+    width: 50vw;
 }
 
-.box1{
+.date{
+    border-left: solid;
+    border-top: solid;
     border-right: solid;
+    border-color: lightgray;
+    padding:5px;
 }
 
-.box2{
+.stock{
+    border-top: solid;
+    border-color: lightgray;
+    padding:5px;
+}
+
+.removeIcon{
+    border-top: solid;
+    border-left: solid;
     border-right: solid;
+    border-color: lightgray;
+    padding:5px;
 }
 
-.box4{
-border-top:solid;
-padding:13px;
-grid-column-start: span 3;
+.removeIcon:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.notes{
+    border:solid;
+    border-color: lightgray;
+    padding:13px;
+    grid-column-start: span 3;
 }

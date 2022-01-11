@@ -7,7 +7,6 @@ import FilterList from '@mui/icons-material/FilterList';
 
 
 import { useNavigate } from "react-router-dom";
-import CustomizedInput from "../customized-input/CustomizedInput.component";
 
 const Navigation = () => {
 
@@ -31,9 +30,7 @@ const Navigation = () => {
             <div className={style.left}>
                 <HomeIcon onClick={() => homeIconHandleClick()} className={style.icon} />
             </div>
-            <div>
-                <CustomizedInput />
-            </div>
+            <div></div>
             <div className={style.right}>
                 <ChatIcon onClick={() => notesIconClick()} className={style.icon} />
                 <FilterList onClick={() => filterListHandleClick()} className={style.icon} />
