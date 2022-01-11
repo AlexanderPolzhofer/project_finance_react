@@ -30,7 +30,8 @@
 
 .removeIcon:hover{
     cursor: pointer;
-    opacity: 0.5;
+    border: none;
+    background-color: lightgray;
 }
 
 .notes{
