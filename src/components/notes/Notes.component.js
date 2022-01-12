@@ -10,13 +10,18 @@ const Notes = () => {
     const [tasks, setTasks] = useState([]);
 
     // function addTask: gets a value (=task) and push it to the spreaded task array
+
     const addTask = value => {
         setTasks(tasks => [...tasks, value])
     }
 
-    // function onDelete: gets a value (=id) and checks wich task should be removed
+    // function onDelete: gets a value (=id), compares the id with the task id 
+    // and returns true if they match, creates a new Array and set it to the state
+
     const onDelete = (id) => {
         alert("Notes: " + id)
+        const taskArray = tasks.filter((task) => task.id !== id);
+        setTasks(taskArray)
     }
 
     return (

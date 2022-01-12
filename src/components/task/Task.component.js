@@ -3,22 +3,24 @@ import React from 'react';
 import RemoveIcon from '../remove-icon/RemoveIcon.component';
 import './Task.styles.css';
 
-const Task = ({ stockName, notes, id, onDelete}) => {
-    
+const Task = ({ stockName, notes, id, onDelete }) => {
+
     const getDate = () => {
         const today = new Date();
         return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     }
 
-const getTaskId = () => {
-   onDelete(id);
-}
+    const getTaskId = () => {
+        onDelete(id);
+    }
 
     return (
         <div className='task-container'>
             <div className='date'>{getDate()}</div>
             <div className='stock'>{stockName}</div>
-            <div onClick = {() => getTaskId()} className='removeIcon'><RemoveIcon /></div>
+            <div onClick={() => getTaskId()} className='removeIcon'>
+                <RemoveIcon />
+            </div>
             <div className='notes'>{notes}</div>
         </div>
     );
