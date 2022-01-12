@@ -5,10 +5,6 @@ import './Tasklist.styles.css';
 
 const Tasklist = ({ tasks, onDelete }) => {
 
-
-    const removeTask = () => {
-
-    }
     return (
         <div className='container'>
             {tasks.map(task => <Task
@@ -16,6 +12,7 @@ const Tasklist = ({ tasks, onDelete }) => {
                 id={task.id}
                 stockName={task.name}
                 notes={task.notes}
+                onDelete={onDelete}
             />)}
         </div>
     );
