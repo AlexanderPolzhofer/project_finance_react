@@ -19,6 +19,9 @@ export default function StockDetail() {
     const [technicalData, setTechnicalData] = useState([]);
     const [isTechnicalDataLoading, setIstTechnicalDataLoading] = useState(true);
 
+    const [xValues, setXValues] = useState([]);
+    const [yValues, setYValues] = useState([]);
+
 
     useEffect(() => {
         const fetchingData = async () => {
@@ -41,9 +44,8 @@ export default function StockDetail() {
             try {
                 const res = await fetch(alphaVantageUrl);
                 const technicalDataFromApi = await res.json();
-                //setTechnicalData(technicalDataFromApi);
-                //setIstTechnicalDataLoading(false);
-                console.log(technicalDataFromApi);
+                setTechnicalData(technicalDataFromApi);
+                setIstTechnicalDataLoading(false);
             } catch (err) {
                 console.log('ERROR alpha vantage api: ' + err.stack)
             }
@@ -51,6 +53,12 @@ export default function StockDetail() {
         fetchingData();
     }, [state.symbol]);
 
+    const getTechnicalDataMAMA = () => {
+        for (var key in technicalData['Technical Analysis: MAMA']) {
+            setXValues(key)
+        }
+    }
+    
 
     return (
         <div >
@@ -60,6 +68,10 @@ export default function StockDetail() {
 
                 <div className='content'>
                     {isLoading ? '...loading' : <Description description={stockDetail.description} />}
+                </div>
+
+                <div>
+                    <button onClick={() => getTechnicalDataMAMA()}>TECHNICAL DATA</button>
                 </div>
             </div>
         </div>
