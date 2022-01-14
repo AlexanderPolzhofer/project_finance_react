@@ -16,7 +16,6 @@ export default function IndexScreen() {
     let nav = useNavigate();
     const handleOnListItemClick = (value) => {
         nav('/indexDetails', { state: value });
-        console.log(value)
     }
 
     useEffect(() => {
