@@ -23,7 +23,7 @@ export const Cardlist = () => {
 
     return (
 
-        < div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        < div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
             {getAllIndexComponents()}
         </div >
 

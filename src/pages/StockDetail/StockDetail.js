@@ -21,44 +21,50 @@ export default function StockDetail() {
 
     const [xValues, setXValues] = useState([]);
     const [yValues, setYValues] = useState([]);
+    const [technicalData, setTechnicalData] = useState([]);
 
 
     useEffect(() => {
-        const fetchingData = async () => {
+       
 
             const apiKeyAlphaVantage = 'RFPSJQBOAQINO7QV';
 
-            //const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
+            const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
             const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
+           
 
-            /*try {
-                const response = await fetch(url);
-                const data = await response.json();
+            fetch(url).then(response=> response.json()).then(data=>{
+                
                 setStockDetail(data);
                 setIsLoading(false);
-            } catch (error) {
-                console.log('ERROR: ' + error);
-            }*/
+            });
 
-            try {
-                const res = await fetch(alphaVantageUrl);
-                const technicalDataFromApi = await res.json();
+            fetch(alphaVantageUrl).then(response=> response.json()).then(technicalDataFromApi=>{
+               
+                let dataArr = [];
+                let data = technicalDataFromApi["Technical Analysis: MAMA"];
 
-                console.log(technicalDataFromApi)
+                Object.entries(data).map(item => {
+                    dataArr.push(item);
+                  })
 
-                for (let key in technicalDataFromApi['Technical Analysis: MAMA']) {
-                    setXValues(xValues => [...xValues, key]);
-                    setYValues(yValues => [...yValues, technicalDataFromApi['Technical Analysis: MAMA'][key].MAMA])
-                }
+                
+                setTechnicalData(dataArr);
+              
                 setIstTechnicalDataLoading(false);
+            });
 
-            } catch (err) {
-                console.log('ERROR alpha vantage api: ' + err);
-            }
-        }
-        fetchingData();
+          
     }, [state.symbol]);
 
+
+    function getDataAsString(){
+        if (technicalData.length===0){
+            return "loading...";
+        } else {
+            return technicalData[0][1].MAMA;
+        }
+    }
 
 
     return (
@@ -72,7 +78,7 @@ export default function StockDetail() {
                 </div>
 
                 <div>
-                    xValues: {xValues}
+                    xValues: {getDataAsString()}
                 </div>
                 <div>
                     yValues:{yValues}

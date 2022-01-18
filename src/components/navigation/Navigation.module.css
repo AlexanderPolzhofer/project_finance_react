@@ -3,9 +3,9 @@
     color: white;
     font-size: x-large;
     padding: 8px;
-    display: grid;
+    display: flex;
     justify-content: space-between;
-    grid-template-columns: 33vw 46vw 21vw;
+    grid-template-columns: 100vw;
     align-items: center;
 }
 

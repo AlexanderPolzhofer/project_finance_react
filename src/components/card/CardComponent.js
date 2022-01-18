@@ -19,7 +19,10 @@ const Cardcomponent = ({ title, imageUrl, id }) => {
         <div className={style.container} onClick={() => handleClick()}>
             <p>{title}
             </p>
-            <img src={imageUrl} alt="flag" style={{ width: "89px", height: "89px" }}></img>
+            <img src={imageUrl} alt="flag" className='image' style={{
+                width: '89px',
+                height: '89px'
+            }}></img>
         </div>
     );
 }

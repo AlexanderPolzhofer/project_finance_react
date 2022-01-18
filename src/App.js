@@ -25,7 +25,10 @@ function App() {
           <Route path="/indexDetails" element={<StockDetail />} />
         </Routes>
       </div>
-      <Footer />
+      <div className='footer'>
+        <Footer />
+      </div>
+
     </div>
   );
 }

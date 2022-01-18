@@ -19,7 +19,6 @@ const Notes = () => {
     // and returns true if they match, creates a new Array and set it to the state
 
     const onDelete = (id) => {
-        alert("Notes: " + id)
         const taskArray = tasks.filter((task) => task.id !== id);
         setTasks(taskArray)
     }
