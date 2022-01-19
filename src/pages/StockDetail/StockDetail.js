@@ -53,6 +53,8 @@ export default function StockDetail() {
             });
     }, [state.symbol]);
 
+    
+
     return (
         <div >
             <Custombutton className='button' to='/daxValues' text='&#10094;' />
