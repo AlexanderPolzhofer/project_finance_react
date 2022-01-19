@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import Custombutton from '../../components/custom-button/CustomButton.component';
 
 import './StockDetail.styles.css';
+import LineChart from '../../components/line-chart/LineChart.component';
 
 export default function StockDetail() {
 
@@ -53,7 +54,7 @@ export default function StockDetail() {
             });
     }, [state.symbol]);
 
-    
+
 
     return (
         <div >
@@ -69,6 +70,7 @@ export default function StockDetail() {
                     {isTechnicalDataLoading ? '... data is loading' : technicalData.map(element => element[0])}
                 </div>
 
+                <LineChart />
             </div>
         </div>
 
