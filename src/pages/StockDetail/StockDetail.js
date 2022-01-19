@@ -14,58 +14,44 @@ export default function StockDetail() {
     /*const apiKey = '37zxr4r5zrfyuhr143n4hq';*/
 
     const [stockDetail, setStockDetail] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
+    const [isLoading, setIsLoading] = useState(true);
 
     const [isTechnicalDataLoading, setIstTechnicalDataLoading] = useState(true);
 
-    const [xValues, setXValues] = useState([]);
-    const [yValues, setYValues] = useState([]);
     const [technicalData, setTechnicalData] = useState([]);
 
 
     useEffect(() => {
-       
 
-            const apiKeyAlphaVantage = 'RFPSJQBOAQINO7QV';
+        const apiKeyAlphaVantage = 'RFPSJQBOAQINO7QV';
 
-            const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
-            const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
-           
+        const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
+        const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
 
-            fetch(url).then(response=> response.json()).then(data=>{
-                
+        /*fetch(url)
+            .then(response => response.json())
+            .then(data => {
+
                 setStockDetail(data);
                 setIsLoading(false);
-            });
+            });*/
 
-            fetch(alphaVantageUrl).then(response=> response.json()).then(technicalDataFromApi=>{
-               
+        fetch(alphaVantageUrl)
+            .then(response => response.json())
+            .then(technicalDataFromApi => {
+
                 let dataArr = [];
                 let data = technicalDataFromApi["Technical Analysis: MAMA"];
 
                 Object.entries(data).map(item => {
                     dataArr.push(item);
-                  })
+                });
 
-                
                 setTechnicalData(dataArr);
-              
                 setIstTechnicalDataLoading(false);
             });
-
-          
     }, [state.symbol]);
-
-
-    function getDataAsString(){
-        if (technicalData.length===0){
-            return "loading...";
-        } else {
-            return technicalData[0][1].MAMA;
-        }
-    }
-
 
     return (
         <div >
@@ -78,11 +64,9 @@ export default function StockDetail() {
                 </div>
 
                 <div>
-                    xValues: {getDataAsString()}
+                    {isTechnicalDataLoading ? '... data is loading' : technicalData.map(element => element[0])}
                 </div>
-                <div>
-                    yValues:{yValues}
-                </div>
+
             </div>
         </div>
 
