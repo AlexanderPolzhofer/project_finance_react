@@ -30,13 +30,13 @@ export default function StockDetail() {
         const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
         const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
 
-        /*fetch(url)
+        fetch(url)
             .then(response => response.json())
             .then(data => {
 
                 setStockDetail(data);
                 setIsLoading(false);
-            });*/
+            });
 
         fetch(alphaVantageUrl)
             .then(response => response.json())
@@ -54,7 +54,38 @@ export default function StockDetail() {
             });
     }, [state.symbol]);
 
+    const labels = technicalData;
 
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'FAMA',
+                data: technicalData.map((element) => element[1].FAMA),
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'MAMA',
+                data: technicalData.map((element) => element[1].MAMA),
+                borderColor: 'rgb(53, 162, 235)',
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+        ],
+    };
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Data from API',
+            },
+        },
+    };
 
     return (
         <div >
@@ -63,14 +94,18 @@ export default function StockDetail() {
                 <u><h1>{state.name}</h1></u>
 
                 <div className='content'>
-                    {isLoading ? '...loading' : <Description description={stockDetail.description} />}
+                    {isLoading ?
+                        '...loading' :
+                        <Description description={stockDetail.description}
+                        />}
                 </div>
 
                 <div>
-                    {isTechnicalDataLoading ? '... data is loading' : technicalData.map(element => element[0])}
+                    {isTechnicalDataLoading ?
+                        '... data is loading' :
+                        <LineChart data={data} options={options}
+                        />}
                 </div>
-
-                <LineChart />
             </div>
         </div>
 
