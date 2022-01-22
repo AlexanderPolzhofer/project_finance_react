@@ -7,24 +7,20 @@
 }
 
 .date{
-    border-left: solid;
-    border-top: solid;
-    border-right: solid;
+    border:solid;
     border-color: lightgray;
     padding:5px;
     grid-column-start: span 1;
 }
 
 .stock{
-    border-top: solid;
+    border: solid;
     border-color: lightgray;
     padding:5px;
 }
 
 .removeIcon{
-    border-top: solid;
-    border-left: solid;
-    border-right: solid;
+    border: solid;
     border-color: lightgray;
     padding:5px;
 }

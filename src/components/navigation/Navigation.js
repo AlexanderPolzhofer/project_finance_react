@@ -12,6 +12,7 @@ const Navigation = () => {
 
     let homeNavigate = useNavigate();
     let navigateToNotes = useNavigate();
+    let navigateToList = useNavigate();
 
     const homeIconHandleClick = () => {
         homeNavigate('/');
@@ -22,7 +23,7 @@ const Navigation = () => {
     }
 
     const filterListHandleClick = () => {
-        alert('clicked on WATCHLIST');
+        navigateToList('/daxValues');
     }
 
     return (

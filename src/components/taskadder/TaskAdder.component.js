@@ -25,9 +25,10 @@ function TaskAdder({ addTask }) {
 
     return (
         <div className='task-container'>
-            <input className='item' type='text' placeholder='UNTERNEHMEN' onChange={handleChangeStockName} value={inputValueStockName} />
-            <button className='item' onClick={handleClick}>ADD</button>
-            <input className='last-item' type='text' placeholder='NOTIZEN' onChange={handleChangeTakeNotes} value={inputValueTakeNotes} />
+            <input style={{ backgroundColor: 'white' }} disabled placeholder='DATUM' />
+            <input type='text' placeholder='UNTERNEHMEN' onChange={handleChangeStockName} value={inputValueStockName} />
+            <button className='submitButton' onClick={handleClick}>ADD</button>
+            <textarea rows={13} className='inputNotes' type='text' placeholder='NOTIZEN' onChange={handleChangeTakeNotes} value={inputValueTakeNotes}/>
         </div>
     );
 }
