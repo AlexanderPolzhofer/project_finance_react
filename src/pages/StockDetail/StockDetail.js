@@ -54,7 +54,7 @@ export default function StockDetail() {
             });
     }, [state.symbol]);
 
-    const labels = technicalData;
+    const labels = technicalData.map(data => data[0]);
 
     const data = {
         labels,
