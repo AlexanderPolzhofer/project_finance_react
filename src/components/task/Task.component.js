@@ -16,12 +16,12 @@ const Task = ({ stockName, notes, id, onDelete }) => {
 
     return (
         <div className='task-container'>
-            <div className='date'>{getDate()}</div>
-            <div className='stock'>{stockName}</div>
-            <div onClick={() => getTaskId()} className='removeIcon'>
+            <div className='taskItem'>{getDate()}</div>
+            <div className='taskItem'><u>{stockName}</u></div>
+            <div onClick={() => getTaskId()} id='removeIcon'>
                 <RemoveIcon />
             </div>
-            <div className='notes'>{notes}</div>
+            <div className='taskItem' id='notes' >{notes}</div>
         </div>
     );
 }

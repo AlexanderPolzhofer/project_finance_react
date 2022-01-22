@@ -19,6 +19,7 @@
     opacity: 0.85;
     background-color: lightgrey;
     color: black;
+    border: solid;
 }
 
 .inputNotes{
