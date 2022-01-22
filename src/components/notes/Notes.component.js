@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocalStorage } from '../../utils/useLocalStorage/useLocalStorage';
 
 import TaskAdder from '../taskadder/TaskAdder.component';
 import TaskList from '../tasklist/Tasklist.component';
@@ -7,7 +8,7 @@ import './Notes.styles.css'
 
 const Notes = () => {
 
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useLocalStorage('tasks',[]);
 
     // function addTask: gets a value (=task) and push it to the spreaded task array
 
