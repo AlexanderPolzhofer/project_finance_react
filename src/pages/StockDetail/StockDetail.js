@@ -8,6 +8,7 @@ import Custombutton from '../../components/custom-button/CustomButton.component'
 
 import './StockDetail.styles.css';
 import LineChart from '../../components/line-chart/LineChart.component';
+import Loader from '../../components/loader/Loader';
 
 export default function StockDetail() {
 
@@ -22,8 +23,6 @@ export default function StockDetail() {
 
     const [technicalData, setTechnicalData] = useState([]);
 
-    const [requestError, setRequestError] = useState('');
-    const [SecondRequestError, setSecondRequestError] = useState('');
 
     useEffect(() => {
 
@@ -41,7 +40,7 @@ export default function StockDetail() {
                     setIsLoading(false);
                 });
         } catch (err) {
-            return setRequestError('Keine Daten vorhanden.');
+            
         }
 
         try {
@@ -58,18 +57,15 @@ export default function StockDetail() {
                         });
                         setTechnicalData(dataArr);
                         setIstTechnicalDataLoading(false);
-                    } catch (er){
+                    } catch (er) {
                         console.log(er)
-                    }                    
+                    }
                 });
         } catch (error) {
             if (error === TypeError) {
-                return setSecondRequestError('Keine Daten vorhanden.');
+                return 'Keine Daten vorhanden.';
             }
         }
-
-
-
     }, [state.symbol]);
 
     const labels = technicalData.map(data => data[0]);
@@ -113,14 +109,14 @@ export default function StockDetail() {
 
                 <div className='content'>
                     {isLoading ?
-                        requestError :
+                        <Loader/> :
                         <Description description={stockDetail.description}
                         />}
                 </div>
 
                 <div>
                     {isTechnicalDataLoading ?
-                        SecondRequestError :
+                        <Loader/> :
                         <LineChart data={data} options={options}
                         />}
                 </div>
