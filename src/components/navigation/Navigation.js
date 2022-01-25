@@ -36,7 +36,6 @@ const Navigation = () => {
                 <ChatIcon onClick={() => notesIconClick()} className={style.icon} />
                 <FilterList onClick={() => filterListHandleClick()} className={style.icon} />
             </div>
-
         </div>
     );
 }

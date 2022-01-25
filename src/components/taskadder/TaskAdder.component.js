@@ -4,7 +4,7 @@ import './TaskAdder.style.css';
 
 function TaskAdder({ addTask }) {
 
-    const [error, setError] = useState();
+    const [error, setError] = useState('');
     const [inputValueStockName, setInputValueStockName] = useState('');
     const [inputValueTakeNotes, setInputValueTakeNotes] = useState('');
     const [taskId, setTaskId] = useState(1);
@@ -31,7 +31,7 @@ function TaskAdder({ addTask }) {
 
     return (
         <div>
-            <div style={{ backgroundColor: '#ff6961', color: 'white', borderRadius: '5px', margin: '13px 0' }}>{null ? ' ' : error}</div>
+            {error && <div style={{ backgroundColor: '#ff6961', color: 'white', borderRadius: '5px', margin: '13px 0', padding: '13px' }}>{error}</div>}
             <div className='task-container'>
                 <input style={{ backgroundColor: 'white' }} disabled placeholder='DATUM' />
                 <input type='text' placeholder='UNTERNEHMEN' onChange={handleChangeStockName} value={inputValueStockName} />
