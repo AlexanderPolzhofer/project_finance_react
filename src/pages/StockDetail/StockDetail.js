@@ -23,6 +23,7 @@ export default function StockDetail() {
     const [technicalData, setTechnicalData] = useState([]);
 
     const [requestError, setRequestError] = useState('');
+    const [SecondRequestError, setSecondRequestError] = useState('');
 
     useEffect(() => {
 
@@ -40,7 +41,7 @@ export default function StockDetail() {
                     setIsLoading(false);
                 });
         } catch (err) {
-            setRequestError('Keine Daten vorhanden.');
+            return setRequestError('Keine Daten vorhanden.');
         }
 
         try {
@@ -51,15 +52,20 @@ export default function StockDetail() {
                     let dataArr = [];
                     let data = technicalDataFromApi["Technical Analysis: MAMA"];
 
-                    Object.entries(data).map(item => {
-                        return dataArr.push(item);
-                    });
-
-                    setTechnicalData(dataArr);
-                    setIstTechnicalDataLoading(false);
+                    try {
+                        Object.entries(data).map(item => {
+                            return dataArr.push(item);
+                        });
+                        setTechnicalData(dataArr);
+                        setIstTechnicalDataLoading(false);
+                    } catch (er){
+                        console.log(er)
+                    }                    
                 });
         } catch (error) {
-            setRequestError('Keine Daten vorhanden.')
+            if (error === TypeError) {
+                return setSecondRequestError('Keine Daten vorhanden.');
+            }
         }
 
 
@@ -114,7 +120,7 @@ export default function StockDetail() {
 
                 <div>
                     {isTechnicalDataLoading ?
-                        requestError :
+                        SecondRequestError :
                         <LineChart data={data} options={options}
                         />}
                 </div>
