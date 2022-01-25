@@ -19,7 +19,7 @@ function App() {
       <div className="App">
         <Navigation />
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/project_finance_react" element={<Homepage />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/daxValues" element={<IndexScreen />} />
           <Route path="/indexDetails" element={<StockDetail />} />

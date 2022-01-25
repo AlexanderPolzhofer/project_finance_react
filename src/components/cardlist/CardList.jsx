@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useEffect, useState } from 'react';
 
+import logoGermany from './../../assets/images/flagGermany.png';
 import CardComponent from '../card/CardComponent';
 
 
@@ -10,7 +11,7 @@ export const Cardlist = () => {
     const [indices, setIndices] = useState([]);
 
     useEffect(() => {
-        setIndices([{ id: 1, name: "DAX", logo: "images/flagGermany.png" }]);
+        setIndices([{ id: 1, name: "DAX", logo: logoGermany }]);
     }, []);
 
     const getAllIndexComponents = () => {

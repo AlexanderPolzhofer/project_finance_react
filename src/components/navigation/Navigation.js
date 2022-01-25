@@ -15,7 +15,7 @@ const Navigation = () => {
     let navigateToList = useNavigate();
 
     const homeIconHandleClick = () => {
-        homeNavigate('/');
+        homeNavigate('/project_finance_react');
     }
 
     const notesIconClick = () => {
