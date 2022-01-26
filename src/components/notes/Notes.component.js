@@ -3,12 +3,13 @@ import { useLocalStorage } from '../../utils/useLocalStorage/useLocalStorage';
 
 import TaskAdder from '../taskadder/TaskAdder.component';
 import TaskList from '../tasklist/Tasklist.component';
+import Topic from '../topic/Topic';
 
 import './Notes.styles.css'
 
 const Notes = () => {
 
-    const [tasks, setTasks] = useLocalStorage('tasks',[]);
+    const [tasks, setTasks] = useLocalStorage('tasks', []);
 
     // function addTask: gets a value (=task) and push it to the spreaded task array
 
@@ -26,7 +27,7 @@ const Notes = () => {
 
     return (
         <div className='notes-container'>
-            <u><h1>Notizen</h1></u>
+            <Topic title='Notizen'/>
             <TaskAdder addTask={addTask} />
             <TaskList tasks={tasks} onDelete={onDelete} />
         </div>

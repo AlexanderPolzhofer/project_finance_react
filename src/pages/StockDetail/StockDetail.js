@@ -9,6 +9,7 @@ import Custombutton from '../../components/custom-button/CustomButton.component'
 import './StockDetail.styles.css';
 import LineChart from '../../components/line-chart/LineChart.component';
 import Loader from '../../components/loader/Loader';
+import Topic from '../../components/topic/Topic';
 
 export default function StockDetail() {
 
@@ -22,7 +23,6 @@ export default function StockDetail() {
     const [isTechnicalDataLoading, setIstTechnicalDataLoading] = useState(true);
 
     const [technicalData, setTechnicalData] = useState([]);
-
 
     useEffect(() => {
 
@@ -40,7 +40,7 @@ export default function StockDetail() {
                     setIsLoading(false);
                 });
         } catch (err) {
-            
+            console.log(err)
         }
 
         try {
@@ -51,20 +51,15 @@ export default function StockDetail() {
                     let dataArr = [];
                     let data = technicalDataFromApi["Technical Analysis: MAMA"];
 
-                    try {
-                        Object.entries(data).map(item => {
-                            return dataArr.push(item);
-                        });
-                        setTechnicalData(dataArr);
-                        setIstTechnicalDataLoading(false);
-                    } catch (er) {
-                        console.log(er)
-                    }
+                    Object.entries(data).map(item => {
+                        return dataArr.push(item);
+                    });
+                    setTechnicalData(dataArr);
+                    setIstTechnicalDataLoading(false);
+
                 });
         } catch (error) {
-            if (error === TypeError) {
-                return 'Keine Daten vorhanden.';
-            }
+            console.log(error)
         }
     }, [state.symbol]);
 
@@ -105,18 +100,16 @@ export default function StockDetail() {
         <div >
             <Custombutton className='button' to='/daxValues' text='&#10094;' />
             <div className='container'>
-                <u><h1>{state.name}</h1></u>
-
+                <Topic title={state.name} />
                 <div className='content'>
                     {isLoading ?
-                        <Loader/> :
+                        <Loader /> :
                         <Description description={stockDetail.description}
                         />}
                 </div>
-
                 <div>
                     {isTechnicalDataLoading ?
-                        <Loader/> :
+                        <Loader /> :
                         <LineChart data={data} options={options}
                         />}
                 </div>
