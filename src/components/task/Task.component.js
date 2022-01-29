@@ -21,7 +21,7 @@ const Task = ({ stockName, notes, id, onDelete }) => {
             <div onClick={() => getTaskId()} id='removeIcon'>
                 <RemoveIcon />
             </div>
-            <div className='taskItem' id='notes' >{notes}</div>
+            <div className='notes'>{notes}</div>
         </div>
     );
 }

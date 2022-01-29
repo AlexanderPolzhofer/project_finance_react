@@ -12,17 +12,13 @@ const Cardcomponent = ({ title, imageUrl, id }) => {
 
     const handleClick = () => {
         navigate("/daxValues", { state: { "name": title, "id": id } });
-
     }
 
     return (
         <div className={style.container} onClick={() => handleClick()}>
             <p>{title}
             </p>
-            <img src={imageUrl} alt="flag" className='image' style={{
-                width: '89px',
-                height: '89px'
-            }}></img>
+            <img src={imageUrl} alt="flag" className={style.logoImage} />
         </div>
     );
 }

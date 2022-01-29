@@ -1,6 +1,5 @@
 import './App.css';
 
-
 import Navigation from './components/navigation/Navigation.js';
 import Footer from './components/footer/Footer.js';
 import React from "react";

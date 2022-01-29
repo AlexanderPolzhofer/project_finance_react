@@ -43,7 +43,7 @@ export default function IndexScreen() {
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: '21px' }}>
             {
-                <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
+                <Table sx={{ minWidth: 55, maxWidth: 1200 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell style={{ fontWeight: 'bold' }}>Dax Value</TableCell>

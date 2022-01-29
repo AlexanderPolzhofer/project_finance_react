@@ -4,8 +4,15 @@
     background-color: lightgrey;
     border-color: gray;
     border-radius: 12px;
-    width: 33vw;
-    font-size: x-large;
+    min-width: 21vw;
+    max-width: 33vw;
+    font-size: 1.5rem;
     font-weight: bold;
     box-shadow: 2px 2px 4px 1px rgb(104, 104, 104);
+}
+
+@media (max-width: 440px){
+    .heading{
+        font-size:0.75rem;
+    }
 }
