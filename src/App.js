@@ -8,7 +8,8 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from './pages/homepage/Homepage.component.jsx';
 import IndexScreen from './pages/Indexscreen/IndexScreen';
 import StockDetail from './pages/StockDetail/StockDetail';
-import Notes from './components/notes/Notes.component';
+
+import NotesCollection from './components/v2-notes/NotesCollection';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/project_finance_react" element={<Homepage />} />
-          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes" element={<NotesCollection />} />
           <Route path="/daxValues" element={<IndexScreen />} />
           <Route path="/indexDetails" element={<StockDetail />} />
         </Routes>

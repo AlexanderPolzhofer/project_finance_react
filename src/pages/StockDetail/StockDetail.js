@@ -14,7 +14,6 @@ import Topic from '../../components/topic/Topic';
 export default function StockDetail() {
 
     const { state } = useLocation();
-    /*const apiKey = '37zxr4r5zrfyuhr143n4hq';*/
 
     const [stockDetail, setStockDetail] = useState([]);
 
@@ -25,42 +24,54 @@ export default function StockDetail() {
     const [technicalData, setTechnicalData] = useState([]);
 
     useEffect(() => {
-
         const apiKeyAlphaVantage = 'RFPSJQBOAQINO7QV';
-
-        const url = `http://localhost:8080/stock/value/${state.symbol}.XETRA`;
+        const url = `http://23.88.104.14:8080/stock/value/${state.symbol}.XETRA`;
         const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
 
-        try {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
+        fetch(url)
+            .then(response => {
+                console.log('Response', response)
+                if (!response.ok) {
+                    return 'Fehler beim Laden der Daten.'
+                }
+                else {
+                    return response.json()
+                }
+            })
+            .then(data => {
+                console.log("Data", data)
+                setStockDetail(data);
+                setIsLoading(false);
+            })
+            .catch(error =>
+                console.log(error.message)
+            );
 
-                    setStockDetail(data);
-                    setIsLoading(false);
+        fetch(alphaVantageUrl)
+            .then(response => {
+                if (!response.ok) {
+                    return 'Fehler beim Laden der Daten.'
+                } else {
+                    return response.json()
+                }
+
+            })
+            .then(technicalDataFromApi => {
+
+                let dataArr = [];
+                let data = technicalDataFromApi["Technical Analysis: MAMA"];
+
+                Object.entries(data).map(item => {
+                    return dataArr.push(item);
                 });
-        } catch (err) {
-            console.log(err)
-        }
+                setTechnicalData(dataArr);
+                setIstTechnicalDataLoading(false);
 
-        try {
-            fetch(alphaVantageUrl)
-                .then(response => response.json())
-                .then(technicalDataFromApi => {
+            })
+            .catch(er => {
+                console.log(er.message)
+            });
 
-                    let dataArr = [];
-                    let data = technicalDataFromApi["Technical Analysis: MAMA"];
-
-                    Object.entries(data).map(item => {
-                        return dataArr.push(item);
-                    });
-                    setTechnicalData(dataArr);
-                    setIstTechnicalDataLoading(false);
-
-                });
-        } catch (error) {
-            console.log(error)
-        }
     }, [state.symbol]);
 
     const labels = technicalData.map(data => data[0]);
