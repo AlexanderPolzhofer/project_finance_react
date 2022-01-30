@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/project_finance_react/static/css/main.0e057a71.chunk.css",
-    "main.js": "/project_finance_react/static/js/main.86e7a71c.chunk.js",
-    "main.js.map": "/project_finance_react/static/js/main.86e7a71c.chunk.js.map",
-    "runtime-main.js": "/project_finance_react/static/js/runtime-main.8f292875.js",
-    "runtime-main.js.map": "/project_finance_react/static/js/runtime-main.8f292875.js.map",
-    "static/js/2.8640098c.chunk.js": "/project_finance_react/static/js/2.8640098c.chunk.js",
-    "static/js/2.8640098c.chunk.js.map": "/project_finance_react/static/js/2.8640098c.chunk.js.map",
-    "static/js/3.90fb27ef.chunk.js": "/project_finance_react/static/js/3.90fb27ef.chunk.js",
-    "static/js/3.90fb27ef.chunk.js.map": "/project_finance_react/static/js/3.90fb27ef.chunk.js.map",
+    "main.css": "/project_finance_react/static/css/main.5a3eb4ed.chunk.css",
+    "main.js": "/project_finance_react/static/js/main.6fa9d7a7.chunk.js",
+    "main.js.map": "/project_finance_react/static/js/main.6fa9d7a7.chunk.js.map",
+    "runtime-main.js": "/project_finance_react/static/js/runtime-main.aabe1081.js",
+    "runtime-main.js.map": "/project_finance_react/static/js/runtime-main.aabe1081.js.map",
+    "static/css/2.383c0125.chunk.css": "/project_finance_react/static/css/2.383c0125.chunk.css",
+    "static/js/2.19b53e3a.chunk.js": "/project_finance_react/static/js/2.19b53e3a.chunk.js",
+    "static/js/2.19b53e3a.chunk.js.map": "/project_finance_react/static/js/2.19b53e3a.chunk.js.map",
+    "static/js/3.e0989728.chunk.js": "/project_finance_react/static/js/3.e0989728.chunk.js",
+    "static/js/3.e0989728.chunk.js.map": "/project_finance_react/static/js/3.e0989728.chunk.js.map",
     "index.html": "/project_finance_react/index.html",
-    "static/css/main.0e057a71.chunk.css.map": "/project_finance_react/static/css/main.0e057a71.chunk.css.map",
-    "static/js/2.8640098c.chunk.js.LICENSE.txt": "/project_finance_react/static/js/2.8640098c.chunk.js.LICENSE.txt"
+    "static/css/2.383c0125.chunk.css.map": "/project_finance_react/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.5a3eb4ed.chunk.css.map": "/project_finance_react/static/css/main.5a3eb4ed.chunk.css.map",
+    "static/js/2.19b53e3a.chunk.js.LICENSE.txt": "/project_finance_react/static/js/2.19b53e3a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8f292875.js",
-    "static/js/2.8640098c.chunk.js",
-    "static/css/main.0e057a71.chunk.css",
-    "static/js/main.86e7a71c.chunk.js"
+    "static/js/runtime-main.aabe1081.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.19b53e3a.chunk.js",
+    "static/css/main.5a3eb4ed.chunk.css",
+    "static/js/main.6fa9d7a7.chunk.js"
   ]
 }
