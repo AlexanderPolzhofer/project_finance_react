@@ -28,9 +28,14 @@ export default function StockDetail() {
         const url = `http://23.88.104.14:8080/stock/value/${state.symbol}.XETRA`;
         const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
 
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
             .then(response => {
-                console.log('Response', response)
                 if (!response.ok) {
                     return 'Fehler beim Laden der Daten.'
                 }
@@ -39,7 +44,6 @@ export default function StockDetail() {
                 }
             })
             .then(data => {
-                console.log("Data", data)
                 setStockDetail(data);
                 setIsLoading(false);
             })
@@ -54,7 +58,6 @@ export default function StockDetail() {
                 } else {
                     return response.json()
                 }
-
             })
             .then(technicalDataFromApi => {
 
