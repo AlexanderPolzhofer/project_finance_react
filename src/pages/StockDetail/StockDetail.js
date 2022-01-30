@@ -26,7 +26,7 @@ export default function StockDetail() {
     useEffect(() => {
         const apiKeyAlphaVantage = 'RFPSJQBOAQINO7QV';
         const url = `http://23.88.104.14:8080/stock/value/${state.symbol}.XETRA`;
-        const alphaVantageUrl = `https://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
+        const alphaVantageUrl = `http://www.alphavantage.co/query?function=MAMA&symbol=${state.symbol}&interval=daily&series_type=close&fastlimit=0.02&apikey=${apiKeyAlphaVantage}`;
 
         fetch(url, {
             method: 'GET',
