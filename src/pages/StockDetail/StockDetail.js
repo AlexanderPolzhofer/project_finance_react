@@ -118,7 +118,7 @@ export default function StockDetail() {
                         <Description description={stockDetail.description}
                         />}
                 </div>
-                <div>
+                <div className='content'>
                     {isTechnicalDataLoading ?
                         <Loader /> :
                         <LineChart data={data} options={options}

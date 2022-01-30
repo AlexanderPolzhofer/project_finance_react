@@ -38,7 +38,7 @@ const Createnotes = ({ notes, setNotes }) => {
 
     return (
         <>
-            <h2>Create Notes</h2>
+            <h2 styles={{ fontWeight: 'bolder' }}>Create Notes</h2>
             {error && <Alert variant='danger'>{error}</Alert>}
             <Form className='mt-3 mb-3' onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicTitle">

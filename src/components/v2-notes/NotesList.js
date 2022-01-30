@@ -20,7 +20,7 @@ const Noteslist = ({ notes, setNotes }) => {
 
     return (
         <>
-            <h2 className='mt-3'>Notes</h2>
+            <h2 className='mt-3' style={{fontWeight: 'bold'}}>Notes</h2>
             {renderNotes()}
         </>
     );

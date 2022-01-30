@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,9 +8,10 @@ import NotesList from './NotesList';
 import CreateNotes from './CreateNotes';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useLocalStorage } from '../../utils/useLocalStorage/useLocalStorage';
 
 const NotesCollection = () => {
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useLocalStorage('notes', []);
 
     return (
         <>
