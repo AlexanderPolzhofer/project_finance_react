@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from './pages/homepage/Homepage.component.jsx';
 import IndexScreen from './pages/Indexscreen/IndexScreen';
 import StockDetail from './pages/StockDetail/StockDetail';
+import NotFoundPage from './pages/not-found-page/NotFoundPage';
 
 import NotesCollection from './components/v2-notes/NotesCollection';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/notes" element={<NotesCollection />} />
           <Route path="/daxValues" element={<IndexScreen />} />
           <Route path="/indexDetails" element={<StockDetail />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <div className='footer'>
