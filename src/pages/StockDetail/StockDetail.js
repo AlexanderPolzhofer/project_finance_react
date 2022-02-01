@@ -73,7 +73,7 @@ export default function StockDetail() {
 
             })
             .catch(er => {
-                console.log(er.message)
+                console.log(er)
             });
 
     }, [state.symbol]);
